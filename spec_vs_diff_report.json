@@ -1,0 +1,133 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-25T22:07:54.688Z",
+  "summary": "The diff implements most of the requested requirements. Frontend pages (Home, Wallet, Promotions, Admin, Profile), components (Header, HeroSlider, GameGrid, GameCard, LeftSidebar, LiveSidebar, BottomNav, Footer, AuthModal), contexts (AuthContext, SidebarContext), and backend Motoko actor are all present. However, several specific acceptance criteria have gaps: the backend's updateBalance does not reject negative balances, no unique userId is returned from createUser, and several files are omitted from the diff due to truncation limits.",
+  "missing_requirements": [
+    {
+      "id": "REQ-11",
+      "requirement": "createUser stores a new user record and returns a unique userId",
+      "reason": "The backend createUser function returns async () (unit/void), not a unique userId. The AC requires it to return a unique userId.",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "requirement": "updateBalance updates a user's balance and rejects if resulting balance would be negative",
+      "reason": "The backend updateBalance only adds to balance (balance + amount). There is no subtraction path or negative-balance check/rejection logic.",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "requirement": "getTransactions returns all transactions for a given userId in reverse chronological order",
+      "reason": "The getTransactions implementation is truncated in the diff; reverse chronological ordering cannot be confirmed.",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "requirement": "Wallet page with deposit/withdraw functionality and transaction history",
+      "reason": "The Wallet page (frontend/src/pages/Wallet.tsx) is imported in App.tsx but is not included in the diff due to file omission limits. Implementation cannot be confirmed.",
+      "evidence": [
+        "frontend/src/App.tsx"
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "requirement": "Promotions page accessible at /promo listing at least 4 promo cards with Claim Now button",
+      "reason": "The Promotions page (frontend/src/pages/Promotions.tsx) is imported in App.tsx but omitted from the diff. Implementation cannot be confirmed.",
+      "evidence": [
+        "frontend/src/App.tsx"
+      ]
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "Dedicated /profile route and Profile page component",
+      "reason": "The build request does not specify a standalone /profile page route. REQ-6 mentions a My Profile dropdown item and REQ-7 a Profile tab, but no separate page was requested.",
+      "evidence": [
+        "frontend/src/App.tsx"
+      ]
+    },
+    {
+      "description": "Stats bar on Home page showing Online Players, Today's Winners, Total Paid Out, and Live Games metrics",
+      "reason": "The build request does not specify a stats/metrics bar on the home page.",
+      "evidence": [
+        "frontend/src/pages/Home.tsx"
+      ]
+    },
+    {
+      "description": "Social media icon buttons (FB, TW, IG, YT) in the footer",
+      "reason": "The build request does not mention social media links or icons as part of the footer specification.",
+      "evidence": [
+        "frontend/src/components/Footer.tsx"
+      ]
+    },
+    {
+      "description": "updateBalance restricted to admin-only callers via AccessControl",
+      "reason": "The build request specifies updateBalance as a general update call with no mention of admin-only restriction.",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    },
+    {
+      "description": "UserProfile type and getCallerUserProfile, saveCallerUserProfile, getUserProfile backend functions",
+      "reason": "REQ-11 only specifies createUser, getUser, updateBalance, addTransaction, and getTransactions. The UserProfile-related functions are additional and not requested.",
+      "evidence": [
+        "backend/main.mo",
+        "frontend/src/hooks/useQueries.ts"
+      ]
+    },
+    {
+      "description": "isCallerAdmin query hook in useQueries.ts",
+      "reason": "The build request does not specify an isCallerAdmin backend function or corresponding frontend query.",
+      "evidence": [
+        "frontend/src/hooks/useQueries.ts"
+      ]
+    },
+    {
+      "description": "MixinStorage blob-storage inclusion in backend actor",
+      "reason": "The build request does not specify any blob or file storage functionality in the backend.",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    }
+  ],
+  "confidence": 0.62,
+  "changed_files": [
+    "all_files_summary.json",
+    "backend/main.mo",
+    "frontend-file-summaries.txt",
+    "frontend/index.css",
+    "frontend/index.html",
+    "frontend/src/App.tsx",
+    "frontend/src/components/AuthModal.tsx",
+    "frontend/src/components/BottomNav.tsx",
+    "frontend/src/components/Footer.tsx",
+    "frontend/src/components/GameCard.tsx",
+    "frontend/src/components/GameGrid.tsx",
+    "frontend/src/components/Header.tsx",
+    "frontend/src/components/HeroSlider.tsx",
+    "frontend/src/components/LeftSidebar.tsx",
+    "frontend/src/components/LiveSidebar.tsx",
+    "frontend/src/context/AuthContext.tsx",
+    "frontend/src/context/SidebarContext.tsx",
+    "frontend/src/hooks/useActor.ts",
+    "frontend/src/hooks/useInternetIdentity.ts",
+    "frontend/src/hooks/useQueries.ts",
+    "frontend/src/index.css",
+    "frontend/src/main.tsx",
+    "frontend/src/pages/Admin.tsx",
+    "frontend/src/pages/Home.tsx",
+    "frontend/src/pages/Profile.tsx",
+    "frontend/src/pages/Promotions.tsx",
+    "frontend/src/pages/Wallet.tsx",
+    "frontend/src/utils/urlParams.ts",
+    "frontend/tailwind.config.js",
+    "project_state.json"
+  ]
+}

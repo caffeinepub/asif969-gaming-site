@@ -1,0 +1,318 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Mobile-First Gaming & Entertainment Website (CK444/ASIF969 Style)",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Implement sticky header with logo, Register/Login button, and scrolling marquee displaying latest winners",
+      "acceptanceCriteria": [
+        "Header stays fixed at the top of the viewport on scroll.",
+        "Register/Login button is visually prominent using the #FFD700 gold accent.",
+        "Marquee animates horizontally and loops continuously with sample winner data."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Header.tsx",
+          "operation": "create",
+          "description": "Create sticky header component with logo on the left, Register/Login button on the right (styled with #FFD700 gold accent), and a scrolling marquee below displaying mock winner data (e.g., 'User123 won $500 on Slots'). The marquee should animate horizontally and loop continuously. Integrate with authentication state from useInternetIdentity hook to toggle between Register/Login and user top bar display."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Import and wire Header component at the top of the application layout so it appears on all pages. Ensure the header remains fixed at the top of the viewport."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Build dynamic hero slider with auto-advancing slides for promotions and game announcements",
+      "acceptanceCriteria": [
+        "Slider auto-advances every 4 seconds.",
+        "Prev/next arrow buttons and dot indicators are visible and functional.",
+        "Each slide renders a background image, headline, sub-heading, and CTA button.",
+        "Slider is fully responsive on mobile."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/HeroSlider.tsx",
+          "operation": "create",
+          "description": "Create a hero slider component with 3–5 auto-advancing slides (4-second interval). Each slide uses a full-width background image from the generated assets: frontend/public/assets/generated/hero-banner-1.dim_1440x560.jpg, frontend/public/assets/generated/hero-banner-2.dim_1440x560.jpg, and frontend/public/assets/generated/hero-banner-3.dim_1440x560.jpg. Include headline text, sub-heading, and a CTA button for each slide. Add manual prev/next arrow controls and dot indicators for navigation. Ensure the slider is fully responsive on mobile devices."
+        },
+        {
+          "path": "frontend/src/pages/Home.tsx",
+          "operation": "create",
+          "description": "Create the Home page component that includes the HeroSlider component at the top, followed by the categorized game grid (REQ-3). This page serves as the main landing view."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Import and register the Home page at the root route (/). Ensure it is the default landing page of the application."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Create categorized game grid with tabs for Slots, Live Casino, Sports, and Table Games",
+      "acceptanceCriteria": [
+        "Clicking each category tab filters and shows only the relevant game cards.",
+        "GameCard component is reusable and accepts props for image, title, and category.",
+        "Hover effect scales the card and reveals/highlights the Play Now button.",
+        "Grid is responsive: 2 columns on mobile, 3 on tablet, 4+ on desktop."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/GameCard.tsx",
+          "operation": "create",
+          "description": "Create a reusable GameCard component that accepts props for thumbnail image, game title, and category. On hover, apply a scale effect and reveal/highlight the 'Play Now' button with a glow effect using the neon blue (#00BFFF) accent. The card should have smooth 150–200ms transitions."
+        },
+        {
+          "path": "frontend/src/components/GameGrid.tsx",
+          "operation": "create",
+          "description": "Create a GameGrid component with four category tabs: Slots, Live Casino, Sports, and Table Games. Clicking each tab filters the displayed game cards to show only the selected category. Use mock game data and reference the generated game thumbnails: frontend/public/assets/generated/game-thumb-slots.dim_400x300.jpg, frontend/public/assets/generated/game-thumb-livecasino.dim_400x300.jpg, frontend/public/assets/generated/game-thumb-sports.dim_400x300.jpg, and frontend/public/assets/generated/game-thumb-tablegames.dim_400x300.jpg. The grid should be responsive: 2 columns on mobile, 3 on tablet, 4+ on desktop."
+        },
+        {
+          "path": "frontend/src/pages/Home.tsx",
+          "operation": "modify",
+          "description": "Import and integrate the GameGrid component below the HeroSlider on the Home page so users can browse games by category."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Add real-time sidebar showing live feed of recent wins and leaderboard",
+      "acceptanceCriteria": [
+        "Sidebar displays on the right side on desktop layouts.",
+        "Recent wins list updates with new mock entries every few seconds.",
+        "Leaderboard shows top 10 players with rank, name, and winnings.",
+        "On mobile, sidebar is accessible via a toggle button."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/LiveSidebar.tsx",
+          "operation": "create",
+          "description": "Create a LiveSidebar component displaying a live feed of recent wins (player name, game, amount) and a leaderboard table (rank, player, total winnings). Use mock data that cycles at an interval (e.g., every 3–5 seconds) to simulate live updates. On desktop, the sidebar is visible on the right side. On mobile, it is toggled via a button. Style with dark theme and neon accents."
+        },
+        {
+          "path": "frontend/src/pages/Home.tsx",
+          "operation": "modify",
+          "description": "Import and integrate the LiveSidebar component into the Home page layout. On desktop, position it on the right side. On mobile, include a toggle button to show/hide the sidebar."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Implement collapsible left sidebar menu with game category navigation",
+      "acceptanceCriteria": [
+        "Sidebar collapses to icon-only mode when toggled on desktop.",
+        "On mobile, sidebar slides in as a full-height drawer overlay.",
+        "Active category is highlighted with the gold accent color.",
+        "Clicking a category navigates to or filters the main game grid."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/LeftSidebar.tsx",
+          "operation": "create",
+          "description": "Create a collapsible left sidebar menu with icons and labels for game categories: Slots, Live Casino, Sports, Table Games, Promotions, and VIP. On desktop, the sidebar is expanded by default and can collapse to icon-only mode. On mobile, it slides in as a full-height drawer triggered by a hamburger icon in the header. Highlight the active category with the #FFD700 gold accent. Clicking a category filters the main game grid or navigates to the relevant section."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Import and wire the LeftSidebar component into the main application layout. Ensure it is accessible on all pages and integrates with the header's hamburger icon on mobile."
+        },
+        {
+          "path": "frontend/src/components/Header.tsx",
+          "operation": "modify",
+          "description": "Add a hamburger menu icon to the header on mobile viewports that triggers the LeftSidebar drawer to open/close."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Build top bar displaying user balance, notifications icon, and profile dropdown",
+      "acceptanceCriteria": [
+        "Balance is displayed with a currency symbol and formatted number.",
+        "Notifications icon shows a badge with unread count.",
+        "Profile dropdown opens on click and shows all four menu items.",
+        "Top bar replaces or integrates with the Register/Login button when user is 'logged in' (mock state)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/UserTopBar.tsx",
+          "operation": "create",
+          "description": "Create a UserTopBar component displayed when the user is logged in (via useInternetIdentity hook). Show the user's current balance (formatted with currency symbol), a notifications bell icon with a badge count, and a profile dropdown menu with options: My Profile, Wallet, Transaction History, and Logout. The dropdown should open on click and navigate to the respective pages/sections."
+        },
+        {
+          "path": "frontend/src/components/Header.tsx",
+          "operation": "modify",
+          "description": "Import and conditionally render the UserTopBar component in the header when the user is authenticated, replacing or integrating with the Register/Login button."
+        }
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "summary": "Add mobile bottom navigation bar with Home, Wallet, Promo, and Profile tabs",
+      "acceptanceCriteria": [
+        "Bottom nav is only visible on mobile (hidden on md breakpoint and above).",
+        "Tapping each tab navigates to the corresponding section/page.",
+        "Active tab icon and label are highlighted with #FFD700.",
+        "Bottom nav does not overlap page content (page has sufficient bottom padding on mobile)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/BottomNav.tsx",
+          "operation": "create",
+          "description": "Create a mobile-only bottom navigation bar fixed to the bottom of the screen on mobile viewports (hidden on md breakpoint and above). Include four tabs: Home, Wallet, Promo, and Profile, each with an icon and label. Highlight the active tab with the #FFD700 gold accent. Tapping a tab navigates to the corresponding page/route."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Import and wire the BottomNav component into the main application layout. Ensure it is only visible on mobile viewports and does not overlap page content by adding sufficient bottom padding on mobile."
+        }
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "summary": "Build mock user authentication flow with Register, Login, and OTP verification",
+      "acceptanceCriteria": [
+        "Register form collects username, phone number, and password.",
+        "After submitting register form, an OTP entry step is shown (accept any 6-digit code as valid).",
+        "Login form collects phone number and password.",
+        "Successful login/register updates the app's auth context and shows the top bar with balance."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/AuthModal.tsx",
+          "operation": "create",
+          "description": "Create an AuthModal component with two forms: Register (username, phone number, password) and Login (phone number, password). After submitting the Register form, show an OTP verification step where the user enters a 6-digit code (accept any code as valid for mock purposes). On successful login or registration, call the backend createUser method (for register) or getUser (for login) and update the authentication state using useInternetIdentity hook. Use the authorization component to support Internet Identity authentication. Verify the authorization component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/Header.tsx",
+          "operation": "modify",
+          "description": "Import and wire the AuthModal component. The Register/Login button in the header should open the AuthModal when clicked."
+        },
+        {
+          "path": "frontend/src/hooks/useAuth.ts",
+          "operation": "create",
+          "description": "Create a custom hook useAuth that manages frontend authentication state, including user balance, login status, and profile data. Integrate with useInternetIdentity hook from the authorization component to check if the user is authenticated and retrieve the caller's user profile using getCallerUserProfile. Store balance and transaction state in frontend context or React state."
+        }
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "summary": "Create Wallet page with balance display, Deposit/Withdrawal sections, and Transaction History",
+      "acceptanceCriteria": [
+        "Depositing an amount increases the displayed balance.",
+        "Withdrawing an amount decreases the displayed balance (prevent negative balance).",
+        "Each transaction is appended to the Transaction History table with timestamp and status.",
+        "Page is fully responsive on mobile."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Wallet.tsx",
+          "operation": "create",
+          "description": "Create a Wallet page displaying the current user balance, a Deposit section (amount input + Deposit button), a Withdrawal section (amount input + Withdraw button), and a Transaction History table (date, type, amount, status). Use mock data and frontend state management for balance updates. Call backend methods updateBalance and addTransaction when depositing or withdrawing. Ensure withdrawals do not result in negative balance. The page should be fully responsive on mobile."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Import and register the Wallet page at the /wallet route. Ensure it is accessible from the UserTopBar dropdown and the mobile bottom nav Wallet tab."
+        }
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "summary": "Build minimal Admin Dashboard with User Management, Bet Tracking, and Withdrawal Approvals",
+      "acceptanceCriteria": [
+        "Admin page is accessible at /admin route.",
+        "User Management table shows at least 5 mock users.",
+        "Bet Tracking table shows at least 10 mock bet entries.",
+        "Approve/Reject buttons update the withdrawal status in the displayed list."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Admin.tsx",
+          "operation": "create",
+          "description": "Create an Admin Dashboard page at /admin with three sections: User Management (table of mock users with username, phone, balance, status), Bet Tracking (table of recent bets with player, game, amount, outcome), and Withdrawal Approvals (list of pending withdrawal requests with Approve/Reject buttons). Clicking Approve/Reject updates the status in frontend state. Use mock data for all tables. Use the authorization component to verify admin access via isCallerAdmin backend method. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Import and register the Admin page at the /admin route. Ensure it is accessible but not linked in public navigation (direct URL access only)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "summary": "Build Promotions page listing current promotional offers as cards",
+      "acceptanceCriteria": [
+        "Promotions page is accessible at /promo and from the bottom nav Promo tab.",
+        "At least 4 promo cards are displayed in a responsive grid.",
+        "Claim Now button shows a toast/notification confirming the claim.",
+        "Cards display banner image, title, description, and expiry date."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Promotions.tsx",
+          "operation": "create",
+          "description": "Create a Promotions page at /promo displaying at least 4 promotional offer cards in a responsive grid. Each card includes a banner image (use frontend/public/assets/generated/promo-welcome.dim_800x400.jpg and frontend/public/assets/generated/promo-reload.dim_800x400.jpg for the first two promos, and create placeholder images for the others), promo title, description, validity date, and a 'Claim Now' button. Clicking the button shows a toast/notification confirming the claim. Mock promotions include: Welcome Bonus, Reload Bonus, Cashback, and Referral."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Import and register the Promotions page at the /promo route. Ensure it is accessible from the bottom nav Promo tab and the left sidebar Promotions menu item."
+        }
+      ]
+    },
+    {
+      "id": "REQ-13",
+      "summary": "Build site footer with Quick Links, Legal Links, Payment Methods, and Responsible Gaming disclaimer",
+      "acceptanceCriteria": [
+        "Footer has three distinct columns for Quick Links, Legal, and Payments.",
+        "Payment method icons are visually distinguishable (colored or styled badges/text).",
+        "Responsible Gaming link and disclaimer text are present.",
+        "Footer is responsive: columns stack on mobile."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Footer.tsx",
+          "operation": "create",
+          "description": "Create a Footer component with three columns: Quick Links (Home, Promotions, VIP, Contact Us), Legal Links (Terms & Conditions, Privacy Policy, Responsible Gaming), and Payment Methods showing icon badges/text for Bkash, Nagad, Rocket, Visa, and Mastercard. Include a copyright notice and a Responsible Gaming disclaimer. The footer should be responsive with columns stacking on mobile. Style with the dark neon theme."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Import and wire the Footer component at the bottom of the application layout so it appears on all pages."
+        }
+      ]
+    },
+    {
+      "id": "REQ-14",
+      "summary": "Apply consistent dark neon visual theme across the entire application",
+      "acceptanceCriteria": [
+        "Background is #121212 or near-black charcoal across all pages.",
+        "Primary buttons use #FFD700 gold with dark text.",
+        "Neon blue (#00BFFF) is used for borders, highlights, and secondary interactive elements.",
+        "Trust badges (18+, Secure) are visible in the footer or header.",
+        "All hover/active transitions are smooth and consistent at 150–200ms."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Update global styles to apply the dark neon theme: set the body background to #121212 (deep charcoal), define primary button styles using #FFD700 gold for backgrounds and dark text, and use #00BFFF electric blue for borders, highlights, and secondary interactive elements. Set all hover/active transitions to 150–200ms for smooth effects. Use a modern sans-serif font (e.g., Inter, Roboto) for typography."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Extend the Tailwind theme to include custom color variables for the dark neon palette: primary gold (#FFD700), secondary neon blue (#00BFFF), and background charcoal (#121212). Define custom transition durations (150ms, 200ms) for consistent hover/active effects."
+        },
+        {
+          "path": "frontend/src/components/Footer.tsx",
+          "operation": "modify",
+          "description": "Add trust badges ('18+ Only', 'Secure & Certified') to the footer with appropriate styling and icons, ensuring they are visible and aligned with the dark neon theme."
+        }
+      ]
+    }
+  ]
+}

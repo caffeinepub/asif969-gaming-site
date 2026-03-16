@@ -1,0 +1,281 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-implement-a-sticky-header-with-a-logo-on-the-left-a-register-login-button-on-the-right-and-a-scrolling-marquee-below-the-nav-bar-displaying-latest-winners-e-g-user123-won-500-on-slots-cycling-continuously",
+      "featureTitle": "Implement a sticky header with a logo on the left, a 'Register / Login' button on the right, and a scrolling marquee below the nav bar displaying latest winners (e.g., 'User123 won $500 on Slots', cycling continuously).",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/Header.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-a-dynamic-hero-slider-with-auto-advancing-slides-3-5-slides-for-promotions-and-new-game-announcements-each-slide-should-have-a-full-width-background-image-headline-text-a-sub-heading-and-a-cta-button-include-manual-prev-next-controls-and-dot-indicators",
+      "featureTitle": "Build a dynamic hero slider with auto-advancing slides (3–5 slides) for promotions and 'New Game' announcements. Each slide should have a full-width background image, headline text, a sub-heading, and a CTA button. Include manual prev/next controls and dot indicators.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/HeroSlider.tsx",
+        "frontend/src/pages/Home.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-a-categorized-game-grid-with-four-tabs-slots-live-casino-sports-and-table-games-each-tab-shows-a-responsive-grid-of-gamecard-components-with-a-thumbnail-image-game-title-and-a-play-now-button-that-activates-on-hover-with-a-scale-glow-effect",
+      "featureTitle": "Create a categorized game grid with four tabs: Slots, Live Casino, Sports, and Table Games. Each tab shows a responsive grid of GameCard components with a thumbnail image, game title, and a 'Play Now' button that activates on hover with a scale/glow effect.",
+      "files": [
+        "frontend/src/components/GameCard.tsx",
+        "frontend/src/components/GameGrid.tsx",
+        "frontend/src/pages/Home.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-a-real-time-sidebar-visible-on-desktop-toggled-on-mobile-showing-a-live-feed-of-recent-wins-player-name-game-amount-and-a-leaderboard-table-rank-player-total-winnings-populate-with-mock-data-cycling-at-an-interval-to-simulate-live-updates",
+      "featureTitle": "Add a real-time sidebar (visible on desktop, toggled on mobile) showing a live feed of recent wins (player name, game, amount) and a leaderboard table (rank, player, total winnings). Populate with mock data cycling at an interval to simulate live updates.",
+      "files": [
+        "frontend/src/components/LiveSidebar.tsx",
+        "frontend/src/pages/Home.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-a-collapsible-left-sidebar-menu-with-icons-and-labels-for-game-categories-slots-live-casino-sports-table-games-promotions-vip-on-desktop-it-is-expanded-by-default-on-mobile-it-collapses-to-a-drawer-triggered-by-a-hamburger-icon-in-the-header",
+      "featureTitle": "Implement a collapsible left sidebar menu with icons and labels for game categories (Slots, Live Casino, Sports, Table Games, Promotions, VIP). On desktop it is expanded by default; on mobile it collapses to a drawer triggered by a hamburger icon in the header.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/Header.tsx",
+        "frontend/src/components/LeftSidebar.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-5"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-a-top-bar-shown-when-logged-in-displaying-the-user-s-current-balance-a-notifications-bell-icon-with-a-badge-count-and-a-profile-dropdown-menu-with-options-my-profile-wallet-transaction-history-logout",
+      "featureTitle": "Build a top bar (shown when logged in) displaying the user's current balance, a notifications bell icon with a badge count, and a profile dropdown menu with options: My Profile, Wallet, Transaction History, Logout.",
+      "files": [
+        "frontend/src/components/Header.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-6"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-a-mobile-bottom-navigation-bar-fixed-to-the-bottom-of-the-screen-on-mobile-viewports-with-four-tabs-home-wallet-promo-and-profile-each-tab-has-an-icon-and-label-active-tab-is-highlighted-with-the-gold-accent",
+      "featureTitle": "Add a mobile bottom navigation bar fixed to the bottom of the screen on mobile viewports with four tabs: Home, Wallet, Promo, and Profile. Each tab has an icon and label. Active tab is highlighted with the gold accent.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/BottomNav.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-7"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-a-mock-user-authentication-flow-a-modal-or-page-for-register-username-phone-number-password-fields-and-login-phone-number-password-include-a-simulated-otp-verification-step-after-registration-where-the-user-enters-a-6-digit-code-store-auth-state-in-frontend-context-no-real-backend-auth-required",
+      "featureTitle": "Build a mock user authentication flow: a modal or page for Register (username, phone number, password fields) and Login (phone number, password). Include a simulated OTP verification step after registration where the user enters a 6-digit code. Store auth state in frontend context (no real backend auth required).",
+      "files": [
+        "frontend/src/components/AuthModal.tsx",
+        "frontend/src/components/Header.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-8"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-a-wallet-page-accessible-from-the-top-bar-and-bottom-nav-display-current-balance-a-deposit-section-amount-input-deposit-button-a-withdrawal-section-amount-input-withdraw-button-and-a-transaction-history-table-showing-date-type-deposit-withdrawal-amount-and-status-use-mock-data-and-frontend-state-management",
+      "featureTitle": "Create a Wallet page accessible from the top bar and bottom nav. Display current balance, a Deposit section (amount input + Deposit button), a Withdrawal section (amount input + Withdraw button), and a Transaction History table showing date, type (deposit/withdrawal), amount, and status. Use mock data and frontend state management.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/pages/Wallet.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-9"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-a-minimal-admin-dashboard-page-route-admin-with-three-sections-user-management-table-of-mock-users-with-username-phone-balance-status-bet-tracking-table-of-recent-bets-with-player-game-amount-outcome-and-withdrawal-approvals-list-of-pending-withdrawal-requests-with-approve-reject-buttons-that-update-status-in-frontend-state",
+      "featureTitle": "Build a minimal Admin Dashboard page (route: /admin) with three sections: User Management (table of mock users with username, phone, balance, status), Bet Tracking (table of recent bets with player, game, amount, outcome), and Withdrawal Approvals (list of pending withdrawal requests with Approve/Reject buttons that update status in frontend state).",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/pages/Admin.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-10"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-a-promotions-page-route-promo-listing-current-promotional-offers-as-cards-with-a-banner-image-promo-title-description-validity-date-and-a-claim-now-button-include-at-least-4-mock-promotions-e-g-welcome-bonus-reload-bonus-cashback-referral",
+      "featureTitle": "Build a Promotions page (route: /promo) listing current promotional offers as cards with a banner image, promo title, description, validity date, and a 'Claim Now' button. Include at least 4 mock promotions (e.g., Welcome Bonus, Reload Bonus, Cashback, Referral).",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/pages/Promotions.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-12"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-a-site-footer-with-three-columns-quick-links-home-promotions-vip-contact-us-legal-links-terms-conditions-privacy-policy-responsible-gaming-and-payment-methods-showing-icon-logos-for-bkash-nagad-rocket-visa-mastercard-include-a-copyright-notice-and-a-responsible-gaming-disclaimer",
+      "featureTitle": "Build a site footer with three columns: Quick Links (Home, Promotions, VIP, Contact Us), Legal Links (Terms & Conditions, Privacy Policy, Responsible Gaming), and Payment Methods showing icon logos for Bkash, Nagad, Rocket, Visa, Mastercard. Include a copyright notice and a Responsible Gaming disclaimer.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/Footer.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-13"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-apply-a-consistent-dark-neon-visual-theme-across-the-entire-application-deep-charcoal-background-121212-gold-ffd700-as-the-primary-accent-for-buttons-and-active-states-electric-blue-00bfff-as-the-secondary-neon-accent-for-highlights-and-borders-use-sharp-typography-with-a-modern-sans-serif-font-all-interactive-elements-should-have-smooth-hover-active-transitions-150-200ms-trust-badges-e-g-18-only-secure-certified-should-be-visible-in-the-header-or-footer",
+      "featureTitle": "Apply a consistent dark neon visual theme across the entire application: deep charcoal background (#121212), gold (#FFD700) as the primary accent for buttons and active states, electric blue (#00BFFF) as the secondary neon accent for highlights and borders. Use sharp typography with a modern sans-serif font. All interactive elements should have smooth hover/active transitions (150–200ms). Trust badges (e.g., '18+ Only', 'Secure & Certified') should be visible in the header or footer.",
+      "files": [
+        "frontend/src/components/Footer.tsx",
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-14"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

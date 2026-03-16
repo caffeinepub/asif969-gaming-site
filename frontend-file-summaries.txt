@@ -1,0 +1,7 @@
+{
+  "frontend/src/components/Footer.tsx": "Site footer with brand section, quick links, legal links, payment method badges, responsible gaming disclaimer, and caffeine.ai attribution. Fixed conflicting `text-white`/`text-gold` class combinations by removing redundant `text-white` from heading elements that already use `text-gold`.",
+  "frontend/src/components/AuthModal.tsx": "Authentication modal with login/register tabs, OTP verification step, and success state. Fixed `placeholder-gray-500` deprecated classes to use Tailwind v3 `placeholder:text-gray-500` syntax.",
+  "frontend/src/pages/Wallet.tsx": "Wallet page with balance display, deposit/withdrawal forms with quick-amount buttons, payment method selection, and transaction history table. Fixed `placeholder-gray-500` deprecated classes to use Tailwind v3 `placeholder:text-gray-500` syntax, and renamed local `Transaction` interface to `LocalTransaction` to avoid conflicts.",
+  "frontend/src/App.tsx": "Main application entry point that sets up TanStack Router with all routes (home, wallet, promo, admin, profile), wraps the app in AuthProvider and SidebarProvider, and renders the shared Layout with Header, LeftSidebar, BottomNav, Footer, AuthModal, and Toaster.",
+  "frontend/src/pages/Profile.tsx": "User profile page showing avatar, balance, stats, and navigation menu items; displays a login prompt when the user is not authenticated, and a logout button when logged in."
+}

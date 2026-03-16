@@ -1,0 +1,307 @@
+{
+  "kind": "build_request",
+  "title": "Mobile-First Gaming & Entertainment Website (CK444/ASIF969 Style)",
+  "projectName": "GameZone Arena",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Implement a sticky header with a logo on the left, a 'Register / Login' button on the right, and a scrolling marquee below the nav bar displaying latest winners (e.g., 'User123 won $500 on Slots', cycling continuously).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Header: Sticky navigation with a 'Register/Login' button and a scrolling marquee for latest winners."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Header stays fixed at the top of the viewport on scroll.",
+        "Register/Login button is visually prominent using the #FFD700 gold accent.",
+        "Marquee animates horizontally and loops continuously with sample winner data."
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Build a dynamic hero slider with auto-advancing slides (3–5 slides) for promotions and 'New Game' announcements. Each slide should have a full-width background image, headline text, a sub-heading, and a CTA button. Include manual prev/next controls and dot indicators.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Hero Section: A dynamic slider for promotions and 'New Game' announcements."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Slider auto-advances every 4 seconds.",
+        "Prev/next arrow buttons and dot indicators are visible and functional.",
+        "Each slide renders a background image, headline, sub-heading, and CTA button.",
+        "Slider is fully responsive on mobile."
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Create a categorized game grid with four tabs: Slots, Live Casino, Sports, and Table Games. Each tab shows a responsive grid of GameCard components with a thumbnail image, game title, and a 'Play Now' button that activates on hover with a scale/glow effect.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Main Grid: A categorized grid for 'Slots', 'Live Casino', 'Sports', and 'Table Games' with high-quality thumbnails.",
+          "Game Cards: Create a reusable 'GameCard' component that shows a hover effect and a 'Play Now' button."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Clicking each category tab filters and shows only the relevant game cards.",
+        "GameCard component is reusable and accepts props for image, title, and category.",
+        "Hover effect scales the card and reveals/highlights the Play Now button.",
+        "Grid is responsive: 2 columns on mobile, 3 on tablet, 4+ on desktop."
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Add a real-time sidebar (visible on desktop, toggled on mobile) showing a live feed of recent wins (player name, game, amount) and a leaderboard table (rank, player, total winnings). Populate with mock data cycling at an interval to simulate live updates.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Real-time Sidebar: A live feed showing recent wins and leaderboards."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Sidebar displays on the right side on desktop layouts.",
+        "Recent wins list updates with new mock entries every few seconds.",
+        "Leaderboard shows top 10 players with rank, name, and winnings.",
+        "On mobile, sidebar is accessible via a toggle button."
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Implement a collapsible left sidebar menu with icons and labels for game categories (Slots, Live Casino, Sports, Table Games, Promotions, VIP). On desktop it is expanded by default; on mobile it collapses to a drawer triggered by a hamburger icon in the header.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Sidebar: Collapsible menu with icons for different game categories."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Sidebar collapses to icon-only mode when toggled on desktop.",
+        "On mobile, sidebar slides in as a full-height drawer overlay.",
+        "Active category is highlighted with the gold accent color.",
+        "Clicking a category navigates to or filters the main game grid."
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Build a top bar (shown when logged in) displaying the user's current balance, a notifications bell icon with a badge count, and a profile dropdown menu with options: My Profile, Wallet, Transaction History, Logout.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Top Bar: User balance display, notifications icon, and profile dropdown."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Balance is displayed with a currency symbol and formatted number.",
+        "Notifications icon shows a badge with unread count.",
+        "Profile dropdown opens on click and shows all four menu items.",
+        "Top bar replaces or integrates with the Register/Login button when user is 'logged in' (mock state)."
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "text": "Add a mobile bottom navigation bar fixed to the bottom of the screen on mobile viewports with four tabs: Home, Wallet, Promo, and Profile. Each tab has an icon and label. Active tab is highlighted with the gold accent.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Mobile Navigation: Bottom navigation bar for easy access on mobile devices (Home, Wallet, Promo, Profile)."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Bottom nav is only visible on mobile (hidden on md breakpoint and above).",
+        "Tapping each tab navigates to the corresponding section/page.",
+        "Active tab icon and label are highlighted with #FFD700.",
+        "Bottom nav does not overlap page content (page has sufficient bottom padding on mobile)."
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "text": "Build a mock user authentication flow: a modal or page for Register (username, phone number, password fields) and Login (phone number, password). Include a simulated OTP verification step after registration where the user enters a 6-digit code. Store auth state in frontend context (no real backend auth required).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "User Authentication: Phone number-based OTP login."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Register form collects username, phone number, and password.",
+        "After submitting register form, an OTP entry step is shown (accept any 6-digit code as valid).",
+        "Login form collects phone number and password.",
+        "Successful login/register updates the app's auth context and shows the top bar with balance."
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "text": "Create a Wallet page accessible from the top bar and bottom nav. Display current balance, a Deposit section (amount input + Deposit button), a Withdrawal section (amount input + Withdraw button), and a Transaction History table showing date, type (deposit/withdrawal), amount, and status. Use mock data and frontend state management.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Wallet Management: Deposit/Withdrawal history and automated balance updates."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Depositing an amount increases the displayed balance.",
+        "Withdrawing an amount decreases the displayed balance (prevent negative balance).",
+        "Each transaction is appended to the Transaction History table with timestamp and status.",
+        "Page is fully responsive on mobile."
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "text": "Build a minimal Admin Dashboard page (route: /admin) with three sections: User Management (table of mock users with username, phone, balance, status), Bet Tracking (table of recent bets with player, game, amount, outcome), and Withdrawal Approvals (list of pending withdrawal requests with Approve/Reject buttons that update status in frontend state).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Admin Dashboard: Features needed for managing users, tracking total bets, and approving withdrawals."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Admin page is accessible at /admin route.",
+        "User Management table shows at least 5 mock users.",
+        "Bet Tracking table shows at least 10 mock bet entries.",
+        "Approve/Reject buttons update the withdrawal status in the displayed list."
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "text": "Implement a backend Motoko actor to persist user accounts (username, phone, hashed password placeholder, balance) and transaction records (userId, type, amount, timestamp, status). Expose query and update calls for: createUser, getUser, updateBalance, addTransaction, getTransactions.",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Wallet Management: Deposit/Withdrawal history and automated balance updates."
+        ]
+      },
+      "acceptanceCriteria": [
+        "createUser stores a new user record and returns a unique userId.",
+        "getUser returns user data by userId.",
+        "updateBalance updates a user's balance and rejects if resulting balance would be negative.",
+        "addTransaction appends a transaction record for the specified userId.",
+        "getTransactions returns all transactions for a given userId in reverse chronological order."
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "text": "Build a Promotions page (route: /promo) listing current promotional offers as cards with a banner image, promo title, description, validity date, and a 'Claim Now' button. Include at least 4 mock promotions (e.g., Welcome Bonus, Reload Bonus, Cashback, Referral).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Hero Section: A dynamic slider for promotions and 'New Game' announcements."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Promotions page is accessible at /promo and from the bottom nav Promo tab.",
+        "At least 4 promo cards are displayed in a responsive grid.",
+        "Claim Now button shows a toast/notification confirming the claim.",
+        "Cards display banner image, title, description, and expiry date."
+      ]
+    },
+    {
+      "id": "REQ-13",
+      "text": "Build a site footer with three columns: Quick Links (Home, Promotions, VIP, Contact Us), Legal Links (Terms & Conditions, Privacy Policy, Responsible Gaming), and Payment Methods showing icon logos for Bkash, Nagad, Rocket, Visa, Mastercard. Include a copyright notice and a Responsible Gaming disclaimer.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Footer: Links to 'Terms & Conditions', 'Responsible Gaming', and accepted payment methods (icons for Bkash, Nagad, etc.)."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Footer has three distinct columns for Quick Links, Legal, and Payments.",
+        "Payment method icons are visually distinguishable (colored or styled badges/text).",
+        "Responsible Gaming link and disclaimer text are present.",
+        "Footer is responsive: columns stack on mobile."
+      ]
+    },
+    {
+      "id": "REQ-14",
+      "text": "Apply a consistent dark neon visual theme across the entire application: deep charcoal background (#121212), gold (#FFD700) as the primary accent for buttons and active states, electric blue (#00BFFF) as the secondary neon accent for highlights and borders. Use sharp typography with a modern sans-serif font. All interactive elements should have smooth hover/active transitions (150–200ms). Trust badges (e.g., '18+ Only', 'Secure & Certified') should be visible in the header or footer.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "dark-themed, sleek aesthetic with neon accents (gold and blue)",
+          "Use a deep charcoal background (#121212) with vibrant yellow (#FFD700) primary buttons.",
+          "Trust Signals: These sites succeed because they look professional. Ensure your prompt includes 'High-resolution graphics' and 'Trust badges'."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Background is #121212 or near-black charcoal across all pages.",
+        "Primary buttons use #FFD700 gold with dark text.",
+        "Neon blue (#00BFFF) is used for borders, highlights, and secondary interactive elements.",
+        "Trust badges (18+, Secure) are visible in the footer or header.",
+        "All hover/active transitions are smooth and consistent at 150–200ms."
+      ]
+    }
+  ],
+  "constraints": [
+    "No real-money transaction processing — all payment flows are mock/simulated.",
+    "No real OTP sending — OTP verification accepts any 6-digit code for simulation.",
+    "No third-party game API integration — game grid uses mock data and placeholder thumbnails.",
+    "Admin dashboard is accessible without special auth guard (mock only).",
+    "Do not edit any files under frontend/src/hooks/ or frontend/src/components/ui."
+  ],
+  "nonGoals": [
+    "Real-money gambling or betting functionality.",
+    "Actual SMS/OTP delivery via Twilio or any SMS provider.",
+    "Integration with real game providers (e.g., Evolution Gaming, Pragmatic Play APIs).",
+    "Real payment gateway integration (Bkash API, Nagad API, Stripe, etc.).",
+    "SSL certificate configuration or server-level security hardening.",
+    "Obtaining or referencing a gambling license."
+  ],
+  "imageRequirements": {
+    "required": [
+      "Dark neon gaming website hero banner with gold and blue neon light streaks on a #121212 background, abstract casino/gaming motifs (cards, dice, slots reels) (hero-banner-1.dim_1440x560.jpg)",
+      "Dark neon gaming promotional banner with 'Welcome Bonus' text area, gold coins and confetti on dark background (hero-banner-2.dim_1440x560.jpg)",
+      "Dark casino-themed promotional banner with 'VIP Rewards' neon text glow, crown and gem motifs on dark background (hero-banner-3.dim_1440x560.jpg)",
+      "Slot machine game card thumbnail with vibrant neon reels on dark background (game-thumb-slots.dim_400x300.jpg)",
+      "Live casino game card thumbnail showing roulette wheel with neon blue lighting on dark background (game-thumb-livecasino.dim_400x300.jpg)",
+      "Sports betting game card thumbnail with neon-lit soccer ball and stadium silhouette on dark background (game-thumb-sports.dim_400x300.jpg)",
+      "Table games card thumbnail showing poker cards and chips with gold neon accents on dark background (game-thumb-tablegames.dim_400x300.jpg)",
+      "Welcome bonus promotional card banner with gold coins shower on dark background (promo-welcome.dim_800x400.jpg)",
+      "Reload bonus promotional card banner with neon blue reload arrow graphic on dark background (promo-reload.dim_800x400.jpg)"
+    ],
+    "edits": []
+  }
+}
